@@ -1,9 +1,9 @@
 import useEmblaCarousel from 'embla-carousel-react';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import NavBarItem from './NavBarItem';
 
 function App() {
-  const [sectionInView, setSectionInView] = useState(0);
+  // const [sectionInView, setSectionInView] = useState(0);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
@@ -13,64 +13,49 @@ function App() {
   useEffect(() => {
     if (emblaApi) {
       console.log(emblaApi.slideNodes());
+      console.log(emblaApi.selectedScrollSnap());
     }
   }, [emblaApi]);
 
   return (
     <div className='bg-gray-900 h-full text-white p-4'>
-      <header className='flex flex-col items-center mb-7'>
+      <header className='flex flex-col items-center mb-4'>
         <h1 className='text-5xl justify-center mb-1.5'>Omer Hyman</h1>
         <h2 className='text-2xl'>Software Developer</h2>
 
-        <nav id='topBar' className='w-[60%] flex justify-center mt-2'>
+        <nav id='navBar' className='w-[60%] flex justify-center mt-4'>
           <ul className='text-lg text-center justify-center align-center grid grid-cols-3'>
             <li>
-              <NavBarItem name='About Me' />
+              <NavBarItem
+                name='About Me'
+                clicked={() => {
+                  emblaApi?.scrollTo(0);
+                }}
+              />
             </li>
             <li>
-              <NavBarItem name='Projects' />
+              <NavBarItem
+                name='Projects'
+                clicked={() => {
+                  emblaApi?.scrollTo(1);
+                }}
+              />
             </li>
             <li>
-              <NavBarItem name='Contact Me' />
+              <NavBarItem
+                name='Contact Me'
+                clicked={() => {
+                  emblaApi?.scrollTo(2);
+                }}
+              />
             </li>
-
-            {/* <li
-            onClick={() => setSectionInView(0)}
-            className={`w-[25%] py-1.5 hover:border-x-2 hover:border-b-2 hover:rounded-bl-md hover:rounded-br-md hover:border-white hover:shadow-x hover:shadow-white hover:shadow-sm/50 hover:font-bold cursor-default ${
-              sectionInView === 0
-                ? 'bg-linear-to-t from-gray-300 to-gray-900 to-95% text-gray-900'
-                : ''
-            }`}
-          >
-            About Me
-          </li>
-          <li
-            onClick={() => setSectionInView(1)}
-            className={`w-[25%] py-1.5 hover:bg-linear-to-t from-gray-300 to-gray-900 to-95% hover:text-gray-900 hover:font-bold cursor-default ${
-              sectionInView === 1
-                ? 'bg-linear-to-t from-gray-300 to-gray-900 to-95% text-gray-900'
-                : ''
-            }`}
-          >
-            Projects
-          </li>
-          <li
-            onClick={() => setSectionInView(2)}
-            className={`w-[25%] py-1.5 hover:bg-linear-to-t from-gray-300 to-gray-900 to-95% hover:text-gray-900 hover:font-bold cursor-default ${
-              sectionInView === 2
-                ? 'bg-linear-to-t from-gray-300 to-gray-900 to-95% text-gray-900'
-                : ''
-            }`}
-          >
-            Contact Me
-          </li> */}
           </ul>
         </nav>
       </header>
 
-      <div className='embla overflow-hidden' ref={emblaRef}>
+      <div className='embla overflow-hidden max-w-[80%] m-auto' ref={emblaRef}>
         <div className='embla__container flex'>
-          <div className='embla__slide flex-[0-0-100%] min-w-0'>
+          <div className='embla__slide flex-[0_0_100%] min-w-0'>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s, when an unknown printer took a galley of type
@@ -81,7 +66,7 @@ function App() {
             and more recently with desktop publishing software like Aldus
             PageMaker including versions of Lorem Ipsum.
           </div>
-          <div className='embla__slide flex-[0-0-100%] min-w-0'>
+          <div className='embla__slide flex-[0_0_100%] min-w-0'>
             t is a long established fact that a reader will be distracted by the
             readable content of a page when looking at its layout. The point of
             using Lorem Ipsum is that it has a more-or-less normal distribution
@@ -93,7 +78,7 @@ function App() {
             sometimes by accident, sometimes on purpose (injected humour and the
             like).
           </div>
-          <div className='embla__slide flex-[0-0-100%] min-w-0'>
+          <div className='embla__slide flex-[0_0_100%] min-w-0'>
             Contrary to popular belief, Lorem Ipsum is not simply random text.
             It has roots in a piece of classical Latin literature from 45 BC,
             making it over 2000 years old. Richard McClintock, a Latin professor
