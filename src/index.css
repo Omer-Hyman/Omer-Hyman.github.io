@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/merriweather';
+@import '@fontsource/roboto';
+
+#root,
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
