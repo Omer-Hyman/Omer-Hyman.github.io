@@ -1,5 +1,5 @@
 import useEmblaCarousel from 'embla-carousel-react';
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import NavBarItem from './NavBarItem';
 
 function App() {
@@ -10,12 +10,21 @@ function App() {
     dragFree: true,
   });
 
+  const [activeNavBarItem, setActiveNavBarItem] = useState(0);
+  const [navBarItemInView, setNavBarItemInView] = useState(0);
+
   useEffect(() => {
     if (emblaApi) {
       console.log(emblaApi.slideNodes());
       console.log(emblaApi.selectedScrollSnap());
     }
-  }, [emblaApi]);
+  }, [emblaApi?.selectedScrollSnap()]);
+
+  const navBarItemClicked = (index: number) => {
+    emblaApi?.scrollTo(index);
+    setNavBarItemInView(index);
+    setActiveNavBarItem(index);
+  };
 
   return (
     <div className='bg-gray-900 h-full text-white p-4'>
@@ -25,28 +34,55 @@ function App() {
 
         <nav id='navBar' className='w-[60%] flex justify-center mt-4'>
           <ul className='text-lg text-center justify-center align-center grid grid-cols-3'>
-            <li>
+            <li
+              onMouseEnter={() => {
+                setActiveNavBarItem(0);
+              }}
+              onMouseLeave={() => {
+                setActiveNavBarItem(navBarItemInView);
+              }}
+            >
               <NavBarItem
                 name='About Me'
                 clicked={() => {
-                  emblaApi?.scrollTo(0);
+                  navBarItemClicked(0);
                 }}
+                active={activeNavBarItem === 0}
+                inView={navBarItemInView === 0}
               />
             </li>
-            <li>
+            <li
+              onMouseEnter={() => {
+                setActiveNavBarItem(1);
+              }}
+              onMouseLeave={() => {
+                setActiveNavBarItem(navBarItemInView);
+              }}
+            >
               <NavBarItem
                 name='Projects'
                 clicked={() => {
-                  emblaApi?.scrollTo(1);
+                  navBarItemClicked(1);
                 }}
+                active={activeNavBarItem === 1}
+                inView={navBarItemInView === 1}
               />
             </li>
-            <li>
+            <li
+              onMouseEnter={() => {
+                setActiveNavBarItem(2);
+              }}
+              onMouseLeave={() => {
+                setActiveNavBarItem(navBarItemInView);
+              }}
+            >
               <NavBarItem
                 name='Contact Me'
                 clicked={() => {
-                  emblaApi?.scrollTo(2);
+                  navBarItemClicked(2);
                 }}
+                active={activeNavBarItem === 2}
+                inView={navBarItemInView === 2}
               />
             </li>
           </ul>
