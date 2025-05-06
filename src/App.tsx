@@ -1,5 +1,5 @@
 import useEmblaCarousel from 'embla-carousel-react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import NavBarItem from './NavBarItem';
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     dragFree: true,
+    duration: 15,
   });
 
   const [activeNavBarItem, setActiveNavBarItem] = useState(0);
@@ -27,13 +28,13 @@ function App() {
   };
 
   return (
-    <div className='bg-gray-900 h-full text-white p-4'>
-      <header className='flex flex-col items-center mb-4'>
-        <h1 className='text-5xl justify-center mb-1.5'>Omer Hyman</h1>
+    <div className='h-full bg-gray-900 p-4 font-[roboto] text-white'>
+      <header className='mb-4 flex flex-col items-center'>
+        <h1 className='mb-1.5 justify-center text-5xl'>Omer Hyman</h1>
         <h2 className='text-2xl'>Software Developer</h2>
 
-        <nav id='navBar' className='w-[60%] flex justify-center mt-4'>
-          <ul className='text-lg text-center justify-center align-center grid grid-cols-3'>
+        <nav id='navBar' className='mt-4 flex w-[60%] justify-center'>
+          <ul className='align-center grid grid-cols-3 justify-center text-center text-lg'>
             <li
               onMouseEnter={() => {
                 setActiveNavBarItem(0);
@@ -89,44 +90,33 @@ function App() {
         </nav>
       </header>
 
-      <div className='embla overflow-hidden max-w-[80%] m-auto' ref={emblaRef}>
+      <div className='embla m-auto max-w-[80%] overflow-hidden' ref={emblaRef}>
         <div className='embla__container flex'>
-          <div className='embla__slide flex-[0_0_100%] min-w-0'>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
+          <div className='embla__slide min-w-0 flex-[0_0_100%]' id='aboutMe'>
+            I am a software engineer with 1.5 years of industry experience, a
+            degree in Computer Science and nearly 10 years of development
+            experience. Although not officially working as a software engineer
+            since 2024, I have been always been working on personal projects in
+            my spare time. I love creating new products that I would love to
+            have and use in my own personal life. While I have used a wide
+            variety of different technologies, I always find myself coming back
+            to full stack cross platform web deveelopment. I love using React or
+            Angular alongside Capacitor to build web based applications that run
+            on Mobile, Desktop or the Web. It is really a powerful tool that
+            allows me to use my web development skills to write a cross platform
+            application.
+            {/* <br></br>
+            I have developed a lot during my development career, both
+            personally and technically. 
+            <br></br>
+            In my spare time I like skateboarding */}
           </div>
-          <div className='embla__slide flex-[0_0_100%] min-w-0'>
-            t is a long established fact that a reader will be distracted by the
-            readable content of a page when looking at its layout. The point of
-            using Lorem Ipsum is that it has a more-or-less normal distribution
-            of letters, as opposed to using 'Content here, content here', making
-            it look like readable English. Many desktop publishing packages and
-            web page editors now use Lorem Ipsum as their default model text,
-            and a search for 'lorem ipsum' will uncover many web sites still in
-            their infancy. Various versions have evolved over the years,
-            sometimes by accident, sometimes on purpose (injected humour and the
-            like).
+          <div className='embla__slide min-w-0 flex-[0_0_100%]' id='projects'>
+            <h3>Event-based Spotify Playlist Generator</h3>
+            <h3>xSocial</h3>
           </div>
-          <div className='embla__slide flex-[0_0_100%] min-w-0'>
-            Contrary to popular belief, Lorem Ipsum is not simply random text.
-            It has roots in a piece of classical Latin literature from 45 BC,
-            making it over 2000 years old. Richard McClintock, a Latin professor
-            at Hampden-Sydney College in Virginia, looked up one of the more
-            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
-            going through the cites of the word in classical literature,
-            discovered the undoubtable source. Lorem Ipsum comes from sections
-            1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes
-            of Good and Evil) by Cicero, written in 45 BC. This book is a
-            treatise on the theory of ethics, very popular during the
-            Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
-            amet..", comes from a line in section 1.10.32.
+          <div className='embla__slide min-w-0 flex-[0_0_100%]' id='contactMe'>
+            <h3>Links to all my socials</h3>
           </div>
         </div>
       </div>

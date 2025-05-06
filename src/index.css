@@ -1,10 +1,22 @@
 @import 'tailwindcss';
 @import '@fontsource-variable/merriweather';
+@import '@fontsource-variable/roboto-mono';
 @import '@fontsource/roboto';
+@import '@fontsource-variable/playfair-display';
+@import '@fontsource/spectral';
+
+/* @import 'tailwindcss/preflight'; */
+/* @tailwind utilities; */
 
 #root,
 body,
 html {
   width: 100%;
   height: 100%;
+}
+
+@layer base {
+  h3 {
+    @apply text-2xl font-bold;
+  }
 }

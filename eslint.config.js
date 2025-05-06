@@ -3,7 +3,6 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import pluginReact from 'eslint-plugin-react';
 import markdown from '@eslint/markdown';
-import css from '@eslint/css';
 import { defineConfig } from 'eslint/config';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 
@@ -25,12 +24,7 @@ export default defineConfig([
     language: 'markdown/gfm',
     extends: ['markdown/recommended'],
   },
-  {
-    files: ['**/src/.css'],
-    plugins: { css },
-    language: 'css/css',
-    extends: ['css/recommended'],
-  },
+
   eslintConfigPrettier,
   {
     files: ['**/*.{js,ts,jsx,tsx}'],
