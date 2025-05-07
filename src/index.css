@@ -5,18 +5,36 @@
 @import '@fontsource-variable/playfair-display';
 @import '@fontsource/spectral';
 
-/* @import 'tailwindcss/preflight'; */
-/* @tailwind utilities; */
-
 #root,
 body,
 html {
   width: 100%;
   height: 100%;
+  background-color: #1c1c1c;
+  color: #f5e8d8;
+  /* background-color: #111827; */
 }
+
+/* https://www.vev.design/blog/dark-mode-website-color-palette/ 
+
+    Background: #1C1C1C (soft black)
+    Primary Text: #F5E8D8 (warm beige)
+    Accent 1: #FF6F61 (muted coral)
+    Accent 2: #DAA520 (golden yellow)
+    Hover Effects: #FF4500 (burnt orange)
+*/
 
 @layer base {
   h3 {
-    @apply text-2xl font-bold;
+    @apply text-2xl font-bold text-[#DAA520];
   }
+  h1 {
+    @apply text-[#DAA520];
+  }
+  /* h2 {
+    @apply text-[#C3803C];
+  } */
+  /* button {
+    @apply text-[#C3803C];
+  } */
 }
