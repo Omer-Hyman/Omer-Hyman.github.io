@@ -26,14 +26,17 @@ html {
 
 @layer base {
   h3 {
-    @apply text-2xl font-bold text-[#DAA520];
+    @apply text-2xl font-bold text-[#FF4500];
   }
   h1 {
-    @apply text-[#DAA520];
+    @apply text-5xl text-[#DAA520];
   }
-  /* h2 {
-    @apply text-[#C3803C];
-  } */
+  p {
+    @apply mb-3;
+  }
+  h2 {
+    @apply text-2xl;
+  }
   /* button {
     @apply text-[#C3803C];
   } */
