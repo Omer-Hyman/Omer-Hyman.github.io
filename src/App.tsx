@@ -15,13 +15,13 @@ function App() {
     watchDrag: false,
   });
 
-  const [activeNavBarItem, setActiveNavBarItem] = useState(0);
+  // const [activeNavBarItem, setActiveNavBarItem] = useState(0);
   const [navBarItemInView, setNavBarItemInView] = useState(0);
 
   const navBarItemClicked = (index: number) => {
     emblaApi?.scrollTo(index);
     setNavBarItemInView(index);
-    setActiveNavBarItem(index);
+    // setActiveNavBarItem(index);
   };
 
   return (
