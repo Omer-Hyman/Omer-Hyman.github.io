@@ -38,6 +38,7 @@ export default defineConfig([
       'prefer-const': 'warn',
       '@typescript-eslint/consistent-type-imports': 'warn',
       '@typescript-eslint/explicit-function-return-type': 'warn',
+      'react/react-in-jsx-scope': 'off',
     },
   },
   {

@@ -1,27 +1,51 @@
 import useEmblaCarousel from 'embla-carousel-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NavBarItem from './NavBarItem';
 import { FaLinkedin } from 'react-icons/fa';
 import { VscGithub } from 'react-icons/vsc';
 import { FaSquareUpwork } from 'react-icons/fa6';
+import type { JSX } from 'react';
 
-function App() {
-  // const [sectionInView, setSectionInView] = useState(0);
+enum NavBarItems {
+  AboutMe,
+  Projects,
+  Skills,
+}
+
+function App(): JSX.Element {
+  const [navBarItemInView, setNavBarItemInView] = useState(0);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     dragFree: false,
     duration: 15,
     watchDrag: false,
+    startIndex: navBarItemInView,
   });
 
   // const [activeNavBarItem, setActiveNavBarItem] = useState(0);
-  const [navBarItemInView, setNavBarItemInView] = useState(0);
+  useEffect(() => {
+    const url = window.location.href.split('#');
+    if (url.length > 0) {
+      // CompileTime Safety:
+      const fragment = url[1] as keyof typeof NavBarItems;
+      // RunTime Safety:
+      if (fragment in NavBarItems && isNaN(Number(fragment))) {
+        setNavBarItemInView(NavBarItems[fragment]);
+        console.log(emblaApi);
 
-  const navBarItemClicked = (index: number) => {
+        console.log('setting item in view to ', NavBarItems[fragment]);
+      }
+    }
+  }, []);
+
+  const navBarItemClicked = (index: number): void => {
     emblaApi?.scrollTo(index);
     setNavBarItemInView(index);
-    // setActiveNavBarItem(index);
+
+    const fragment = NavBarItems[index].toString();
+    const newUrl = `${window.location.href.split('#')[0]}#${fragment}`;
+    window.location.href = newUrl;
   };
 
   return (
@@ -34,22 +58,24 @@ function App() {
           <FaLinkedin
             className='text-4xl transition duration-125 hover:scale-130'
             onClick={() => {
-              window.location.href =
-                'https://www.linkedin.com/in/omer-hyman-34287b151/';
+              window
+                .open('https://www.linkedin.com/in/omer-hyman-34287b151/')
+                ?.focus();
             }}
           />
 
           <VscGithub
             className='text-4xl duration-125 hover:scale-130'
             onClick={() => {
-              window.location.href = 'https://github.com/Omer-Hyman';
+              window.open('https://github.com/Omer-Hyman')?.focus();
             }}
           />
           <FaSquareUpwork
             className='text-4xl duration-125 hover:scale-130'
             onClick={() => {
-              window.location.href =
-                'https://www.upwork.com/freelancers/~0196bcb58c81e91a97';
+              window
+                .open('https://www.upwork.com/freelancers/~0196bcb58c81e91a97')
+                ?.focus();
             }}
           />
         </div>
@@ -59,14 +85,7 @@ function App() {
           className='mt-4 flex w-[90%] justify-center sm:w-[60%]'
         >
           <ul className='align-center grid grid-cols-3 justify-center text-center text-lg'>
-            <li
-            // onMouseEnter={() => {
-            //   setActiveNavBarItem(0);
-            // }}
-            // onMouseLeave={() => {
-            //   setActiveNavBarItem(navBarItemInView);
-            // }}
-            >
+            <li>
               <NavBarItem
                 name='About Me'
                 clicked={() => {
@@ -75,14 +94,7 @@ function App() {
                 inView={navBarItemInView === 0}
               />
             </li>
-            <li
-            // onMouseEnter={() => {
-            //   setActiveNavBarItem(1);
-            // }}
-            // onMouseLeave={() => {
-            //   setActiveNavBarItem(navBarItemInView);
-            // }}
-            >
+            <li>
               <NavBarItem
                 name='Projects'
                 clicked={() => {
@@ -91,14 +103,7 @@ function App() {
                 inView={navBarItemInView === 1}
               />
             </li>
-            <li
-            // onMouseEnter={() => {
-            //   setActiveNavBarItem(2);
-            // }}
-            // onMouseLeave={() => {
-            //   setActiveNavBarItem(navBarItemInView);
-            // }}
-            >
+            <li>
               <NavBarItem
                 name='Skills'
                 clicked={() => {
@@ -144,6 +149,7 @@ function App() {
             className='embla__slide mb-8 min-w-0 flex-[0_0_100%]'
             id='projects'
           >
+            {/* TODO: Turn projects into expandable cards? */}
             <h3 className='mb-2'>
               Spotify Playlist Generator based on Live Music Events
             </h3>
