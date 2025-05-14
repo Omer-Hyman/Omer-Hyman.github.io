@@ -14,6 +14,7 @@ export default function NavBar({
     <nav id='navBar' className='mt-4 flex w-[100%] justify-center sm:w-[60%]'>
       <ul className='align-center grid grid-cols-3 justify-center text-center text-lg'>
         <li
+          onMouseUp={() => setSectionActiveIndex(10)}
           onMouseEnter={() => {
             setSectionActiveIndex(0);
           }}
@@ -32,6 +33,7 @@ export default function NavBar({
           />
         </li>
         <li
+          onMouseUp={() => setSectionActiveIndex(10)}
           onMouseEnter={() => {
             setSectionActiveIndex(1);
           }}
@@ -50,6 +52,7 @@ export default function NavBar({
           />
         </li>
         <li
+          onMouseUp={() => setSectionActiveIndex(10)}
           onMouseEnter={() => {
             setSectionActiveIndex(2);
           }}
