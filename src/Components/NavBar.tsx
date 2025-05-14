@@ -67,7 +67,7 @@ export default function NavBar({
             clicked={() => {
               navBarItemClicked(2);
             }}
-            inView={sectionInView === 3}
+            inView={sectionInView === 2}
             hoveredOver={sectionActiveIndex === 2}
           />
         </li>

@@ -56,7 +56,10 @@ function App(): JSX.Element {
         {/* TODO: Resize slide */}
       </header>
 
-      <EmblaCarousel scrollTo={scrollTo}></EmblaCarousel>
+      <EmblaCarousel
+        scrollTo={scrollTo}
+        changedSectionInView={(index) => setScrollTo(index)}
+      ></EmblaCarousel>
 
       {/* TODO: Add light mode/dark mode button */}
     </div>
