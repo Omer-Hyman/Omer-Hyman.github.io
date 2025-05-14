@@ -8,11 +8,7 @@ export default function NavBar({
   navBarItemClicked: (navBarItem: number) => void;
   sectionInView: number;
 }): JSX.Element {
-  const [sectionActiveIndex, setSectionActiveIndex] = useState(0);
-
-  useEffect(() => {
-    setSectionActiveIndex(sectionInView);
-  }, []);
+  const [sectionActiveIndex, setSectionActiveIndex] = useState(10);
 
   return (
     <nav id='navBar' className='mt-4 flex w-[100%] justify-center sm:w-[60%]'>
