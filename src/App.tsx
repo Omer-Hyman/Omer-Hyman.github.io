@@ -17,7 +17,7 @@ function App(): JSX.Element {
 
   return (
     <div className='h-full p-4 font-[roboto]'>
-      <header className='mb-3 flex h-fit flex-col items-center'>
+      <header className='mb-4 flex h-fit flex-col items-center'>
         <h1 className='mb-1.5 justify-center'>Omer Hyman</h1>
         <h2 className='mb-2'>Software Developer</h2>
 
@@ -49,6 +49,7 @@ function App(): JSX.Element {
 
         <NavBar
           navBarItemClicked={(navBarItem) => setScrollTo(navBarItem)}
+          sectionInView={scrollTo ?? 0}
         ></NavBar>
 
         {/* TODO: When scrolling down, leave nav bar sticky at the top */}

@@ -3,6 +3,7 @@ import type { JSX } from 'react';
 export default function AboutMe(): JSX.Element {
   return (
     <div>
+      <h3>About Me</h3>
       <p>
         I am a software engineer with 1.5 years of industry experience, a degree
         in Computer Science and nearly 10 years of development experience.
@@ -19,7 +20,14 @@ export default function AboutMe(): JSX.Element {
         Capacitor to build web based applications that run on Mobile, Desktop or
         the Web. Capacitor is really a powerful tool that allows me to use my
         web development skills to write a cross platform applications that have
-        the chance to reach a wider audience.
+        the oppurtunity to reach a wider audience.
+      </p>
+      <p>
+        Whether you need help with bug fixes, development of standalone features
+        to integrate into your codebase, or whole applications developed and
+        delivered I can help. Don't hesitate to get in
+        <strong>contact</strong> with me and we can discuss details. I am based
+        in the UK right now so I'm available during GMT times.
       </p>
     </div>
   );

@@ -39,6 +39,7 @@ export default defineConfig([
       '@typescript-eslint/consistent-type-imports': 'warn',
       '@typescript-eslint/explicit-function-return-type': 'warn',
       'react/react-in-jsx-scope': 'off',
+      'react/no-unescaped-entities': 'off',
     },
   },
   {
