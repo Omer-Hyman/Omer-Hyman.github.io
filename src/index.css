@@ -12,11 +12,11 @@ body,
 html {
   width: 100%;
   height: 100%;
-  background-color: #f5e8d8;
-  color: #1c1c1c;
+  background-color: var(--color-warmBeige);
+  color: var(--color-softBlack);
   @media (prefers-color-scheme: dark) {
-    background-color: #1c1c1c;
-    color: #f5e8d8;
+    background-color: var(--color-softBlack);
+    color: var(--color-warmBeige);
   }
 
   /* background-color: #111827; */
@@ -31,15 +31,23 @@ html {
     Hover Effects: #FF4500 (burnt orange)
 */
 
+@theme {
+  --color-softBlack: #1c1c1c;
+  --color-warmBeige: #f5e8d8;
+  --color-mutedCoral: #ff6f61;
+  --color-goldenYellow: #daa520;
+  --color-burntOrange: #ff4500;
+}
+
 @layer base {
   h1 {
     @apply font-[Montserrat_Variable] text-5xl;
   }
   h2 {
-    @apply font-[Montserrat_Variable] text-xl text-[#FF6F61];
+    @apply text-burntOrange font-[Montserrat_Variable] text-2xl;
   }
   h3 {
-    @apply mb-2 font-[Montserrat_Variable] text-2xl font-semibold text-[#FF6F61];
+    @apply text-mutedCoral mb-2 font-[Montserrat_Variable] text-2xl font-semibold;
   }
   li {
     @apply font-[Montserrat_Variable];
@@ -48,10 +56,19 @@ html {
     @apply mb-3 pb-1.5 font-[Open_Sans_Variable] text-[large];
   }
 
-  /* svg {
-    @apply hover:text-[#DAA520];
-  } */
+  /* TODO: Maybe change headings color to the other red on light mode */
+
+  svg {
+    @apply hover:text-goldenYellow;
+  }
   /* button {
     @apply text-[#C3803C];
   } */
+  label {
+    @apply mt-2;
+  }
+  input,
+  textarea {
+    @apply mt-1 mr-1 rounded-md bg-amber-50 p-1;
+  }
 }

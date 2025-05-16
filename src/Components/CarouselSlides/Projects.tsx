@@ -5,7 +5,7 @@ export default function Projects(): JSX.Element {
     <div>
       {/* TODO: Turn projects into expandable cards? */}
       <h3>Spotify Playlist Generator based on Live Music Events</h3>
-      <div className='mb-4' id='SpotifyEventPlaylistGenerator'>
+      <div id='SpotifyEventPlaylistGenerator'>
         <p>
           I like going to music events and festivals in my spare time. However,
           a lot of the times, it is my friend inviting me out and I have no idea
@@ -38,6 +38,7 @@ export default function Projects(): JSX.Element {
           This application, like many of my others is cloud-hosted, responsive
           and runs on android, iOS and the Web! Please, be my guest and visit it
           at ...
+          {/* TODO */}
         </p>
       </div>
 
@@ -68,6 +69,7 @@ export default function Projects(): JSX.Element {
         title='xSocial demo'
         allowFullScreen
       ></iframe>
+      <div className='pt-1'></div>
     </div>
   );
 }

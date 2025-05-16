@@ -2,19 +2,19 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { useEffect, useRef, type JSX } from 'react';
 import AboutMe from './CarouselSlides/AboutMe';
 import Projects from './CarouselSlides/Projects';
-import { NavBarItems } from '../App';
 import AutoHeight from 'embla-carousel-auto-height';
-import { useLocation } from 'react-router-dom';
+import ContactMe from './CarouselSlides/ContactMe';
 
 export default function EmblaCarousel({
   scrollTo,
-  changedSectionInView,
+  startingSlide,
+  contactMeClicked,
 }: {
-  scrollTo: number | undefined;
-  changedSectionInView: (index: number) => void;
+  scrollTo: number;
+  startingSlide: number;
+  contactMeClicked: () => void;
 }): JSX.Element {
-  const startIndex = useRef(getIndexFromUrlFragment());
-  const location = useLocation();
+  const startIndex = useRef(startingSlide);
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -29,50 +29,26 @@ export default function EmblaCarousel({
   );
 
   useEffect(() => {
-    if (scrollTo !== undefined) {
-      emblaApi?.scrollTo(scrollTo);
-      setUrlFragment(scrollTo);
-    }
+    emblaApi?.scrollTo(scrollTo);
   }, [scrollTo]);
 
-  function setUrlFragment(index: number): void {
-    const fragment = NavBarItems[index].toString();
-    const newUrl = `${window.location.href.split('#')[0]}#${fragment}`;
-    window.location.href = newUrl;
-  }
-
-  function getIndexFromUrlFragment(): number | null {
-    const url = window.location.href.split('#');
-    if (url.length > 0) {
-      const fragment = url[1] as keyof typeof NavBarItems;
-      if (fragment in NavBarItems && isNaN(Number(fragment))) {
-        return NavBarItems[fragment];
-      }
-    }
-    return null;
-  }
-
-  useEffect(() => {
-    const index = getIndexFromUrlFragment();
-    if (index !== null && index !== startIndex.current) {
-      emblaApi?.scrollTo(index);
-      changedSectionInView(index);
-    }
-  }, [location]);
-
   return (
-    <div
-      className='embla m-auto max-w-[95%] overflow-hidden pb-6 sm:max-w-[80%]'
-      ref={emblaRef}
-    >
-      <div className='embla__container flex items-start'>
-        <div className='embla__slide h-fit min-w-0 flex-[0_0_100%]'>
-          <AboutMe></AboutMe>
+    <div className=''>
+      <div
+        className='embla m-auto max-w-[95%] overflow-hidden sm:max-w-[80%]'
+        ref={emblaRef}
+      >
+        <div className='embla__container flex items-start'>
+          <div className='embla__slide h-fit min-w-0 flex-[0_0_100%]'>
+            <AboutMe contactMeClicked={contactMeClicked}></AboutMe>
+          </div>
+          <div className='embla__slide min-w-0 flex-[0_0_100%] pb-8'>
+            <Projects></Projects>
+          </div>
+          <div className='embla__slide min-w-0 flex-[0_0_100%]'>
+            <ContactMe></ContactMe>
+          </div>
         </div>
-        <div className='embla__slide mb-8 min-w-0 flex-[0_0_100%]'>
-          <Projects></Projects>
-        </div>
-        <div className='embla__slide min-w-0 flex-[0_0_100%]'></div>
       </div>
     </div>
   );

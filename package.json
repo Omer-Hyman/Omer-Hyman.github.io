@@ -19,6 +19,7 @@
     "@fontsource-variable/roboto-mono": "^5.2.5",
     "@fontsource/roboto": "^5.2.5",
     "@fontsource/spectral": "^5.2.5",
+    "@formspree/react": "^3.0.0",
     "@tailwindcss/cli": "^4.1.5",
     "@tailwindcss/vite": "^4.1.5",
     "embla-carousel-auto-height": "^8.6.0",

@@ -1,4 +1,4 @@
-import { useEffect, useState, type JSX } from 'react';
+import { useState, type JSX } from 'react';
 import NavBarItem from './NavBarItem';
 
 export default function NavBar({
@@ -9,6 +9,8 @@ export default function NavBar({
   sectionInView: number;
 }): JSX.Element {
   const [sectionActiveIndex, setSectionActiveIndex] = useState(10);
+
+  // TODO: Make button text not selectable
 
   return (
     <nav id='navBar' className='mt-4 flex w-[100%] justify-center sm:w-[60%]'>
@@ -62,7 +64,7 @@ export default function NavBar({
           }}
         >
           <NavBarItem
-            name='Skills'
+            name='Contact Me'
             clicked={() => {
               navBarItemClicked(2);
             }}

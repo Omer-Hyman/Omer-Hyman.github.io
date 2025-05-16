@@ -1,19 +1,29 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaLinkedin } from 'react-icons/fa';
 import { VscGithub } from 'react-icons/vsc';
 import { FaSquareUpwork } from 'react-icons/fa6';
 import type { JSX } from 'react';
 import NavBar from './Components/NavBar';
 import EmblaCarousel from './Components/EmblaCarousel';
-
-export enum NavBarItems {
-  AboutMe,
-  Projects,
-  Skills,
-}
+import { getIndexFromUrlFragment, setUrlFragment } from './Utilities';
+import { useLocation } from 'react-router-dom';
 
 function App(): JSX.Element {
-  const [scrollTo, setScrollTo] = useState<number>();
+  const location = useLocation();
+  const [startOn] = useState(() => {
+    const index = getIndexFromUrlFragment();
+    return index ?? 0;
+  });
+  const [sectionInView, setSectionInView] = useState(startOn);
+
+  useEffect(() => {
+    setUrlFragment(sectionInView);
+  }, [sectionInView]);
+
+  useEffect(() => {
+    const index = getIndexFromUrlFragment();
+    if (index !== null) setSectionInView(index);
+  }, [location]);
 
   return (
     <div className='h-full p-4 font-[roboto]'>
@@ -48,8 +58,8 @@ function App(): JSX.Element {
         </div>
 
         <NavBar
-          navBarItemClicked={(navBarItem) => setScrollTo(navBarItem)}
-          sectionInView={scrollTo ?? 0}
+          navBarItemClicked={(navBarItem) => setSectionInView(navBarItem)}
+          sectionInView={sectionInView}
         ></NavBar>
 
         {/* TODO: When scrolling down, leave nav bar sticky at the top */}
@@ -57,8 +67,9 @@ function App(): JSX.Element {
       </header>
 
       <EmblaCarousel
-        scrollTo={scrollTo}
-        changedSectionInView={(index) => setScrollTo(index)}
+        startingSlide={startOn}
+        scrollTo={sectionInView}
+        contactMeClicked={() => setSectionInView(2)}
       ></EmblaCarousel>
 
       {/* TODO: Add light mode/dark mode button */}

@@ -1,6 +1,10 @@
 import type { JSX } from 'react';
 
-export default function AboutMe(): JSX.Element {
+export default function AboutMe({
+  contactMeClicked,
+}: {
+  contactMeClicked: () => void;
+}): JSX.Element {
   return (
     <div>
       <h3>About Me</h3>
@@ -25,10 +29,17 @@ export default function AboutMe(): JSX.Element {
       <p>
         Whether you need help with bug fixes, development of standalone features
         to integrate into your codebase, or whole applications developed and
-        delivered I can help. Don't hesitate to get in
-        <strong>contact</strong> with me and we can discuss details. I am based
-        in the UK right now so I'm available during GMT times.
+        delivered I can help. Don't hesitate to{' '}
+        <button
+          onClick={contactMeClicked}
+          className='text-mutedCoral hover:text-burntOrange px-1 underline underline-offset-4'
+        >
+          get in contact
+        </button>{' '}
+        with me and we can discuss details. I am based in the UK right now so
+        I'm available during GMT times.
       </p>
+      {/* TODO: Link contact to contact me form */}
     </div>
   );
 }
