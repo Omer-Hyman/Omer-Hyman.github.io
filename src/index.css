@@ -49,6 +49,9 @@ html {
   h3 {
     @apply text-mutedCoral mb-2 font-[Montserrat_Variable] text-2xl font-semibold;
   }
+  h4 {
+    @apply mb-2 font-[Montserrat_Variable] text-xl font-semibold;
+  }
   li {
     @apply font-[Montserrat_Variable];
   }

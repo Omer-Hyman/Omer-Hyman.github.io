@@ -32,12 +32,12 @@ export default function AboutMe({
         delivered I can help. Don't hesitate to{' '}
         <button
           onClick={contactMeClicked}
-          className='text-mutedCoral hover:text-burntOrange px-1 underline underline-offset-4'
+          className='text-goldenYellow hover:text-burntOrange px-1 underline underline-offset-4'
         >
           get in contact
         </button>{' '}
-        with me and we can discuss details. I am based in the UK right now so
-        I'm available during GMT times.
+        and we can discuss details. I am based in the UK right now so I'm
+        available during GMT times.
       </p>
       {/* TODO: Link contact to contact me form */}
     </div>

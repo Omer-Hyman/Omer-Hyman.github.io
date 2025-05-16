@@ -4,23 +4,25 @@ export default function Projects(): JSX.Element {
   return (
     <div>
       {/* TODO: Turn projects into expandable cards? */}
-      <h3>Spotify Playlist Generator based on Live Music Events</h3>
+      <h3>Spotify Playlist Generator</h3>
+      <p className='text-goldenYellow mt-3 mb-1 text-center'>
+        React, Typescript, Node.JS, Express.JS, Supabase, Capacitor, Render
+      </p>
       <div id='SpotifyEventPlaylistGenerator'>
         <p>
-          I like going to music events and festivals in my spare time. However,
-          a lot of the times, it is my friend inviting me out and I have no idea
-          what the music is going to be like! To better assess worth of buying a
-          ticket, I have developed an app that allows the user to search for a
-          music event and create a Spotify playlist featuring the artists that
-          are going to be performing.
+          I like going to music events and festivals, however, a lot of the
+          time, a friend is inviting me and I have no idea what the music is
+          going to be like! To better assess if it is worth buying a ticket, I
+          have developed an app that allows the user to search for a music event
+          and create a Spotify playlist featuring the artists that will be
+          performing.
         </p>
         <p>
-          The application searches a ticketing website, gets down the artist
-          information, and then integrates with the Spotify web api to create a
-          playlist and populate it with all of the artist's top songs! In the
-          process, the user is also prompted to authenticate/login to their
-          spotify account in order for the playlist to be saved on their
-          profile.
+          The application searches a ticketing website, pulls down the artist
+          information, and integrates with Spotify to create a playlist and
+          populate it with all of the artists' top songs! During this process,
+          the user is also prompted to login to their spotify account in order
+          for the playlist to be saved to their profile.
         </p>
         <p>
           When projects get bigger and more complicated, as this one eventually
@@ -35,9 +37,9 @@ export default function Projects(): JSX.Element {
           line as this project scales.
         </p>
         <p>
-          This application, like many of my others is cloud-hosted, responsive
-          and runs on android, iOS and the Web! Please, be my guest and visit it
-          at ...
+          This application, like many of my others is responsive and runs on
+          android, iOS and the Web! It will soon be hosted online, but for now,
+          please watch my screen cast demonstrating it in action.
           {/* TODO */}
         </p>
       </div>
@@ -48,19 +50,22 @@ export default function Projects(): JSX.Element {
         title='Spotify Playlist Generator demo'
         allowFullScreen
       ></iframe>
-      <h3 className='mt-8'>xSocial</h3>
+
+      <h3 className='mt-4'>xSocial</h3>
+      <p className='text-goldenYellow mt-3 mb-1 text-center'>
+        Angular, Typescript, Python, Django, Django REST framework, Capacitor
+      </p>
       <div className='mb-3'>
         <p>
-          Developed a responsive frontend UI, set up a RESTful API and a backend
-          database system.
-        </p>
-        <p>
-          Connected to external APIs like Google Maps API and Leaflet to provide
-          a graphical map interface.
-        </p>
-        <p>
-          Used Ngrok to host the server allowing me to test across multiple
-          devices on different networks.
+          Another hobby of mine is skateboarding. During my final year at
+          university, I took on a project to develop an application that would
+          allow users to see other user-submitted skate spots on a map. Users
+          would be able to share different locations where they have been
+          skateboarding in public and they would be able to interact with each
+          other, leaving comments and media under each spot entry. My aim for
+          this application is to really foster a community feeling, allowing
+          skateboarders living in the same area to find each other and skate and
+          socialise at different spots found on xSocial.
         </p>
       </div>
       <iframe
@@ -69,7 +74,8 @@ export default function Projects(): JSX.Element {
         title='xSocial demo'
         allowFullScreen
       ></iframe>
-      <div className='pt-1'></div>
+
+      {/* <div className='pt-1'></div> */}
     </div>
   );
 }
