@@ -11,9 +11,6 @@ export default function AboutMe(): JSX.Element {
     );
   }
 
-  useEffect(() => {
-    console.log(state.errors);
-  }, [state]);
   return (
     <div className='ml-1'>
       {/* TODO: Or copy my email address to clipboard */}
@@ -49,23 +46,6 @@ export default function AboutMe(): JSX.Element {
           field='message'
           errors={state.errors}
         />
-        {/* {state.errors?.map((error) => {
-          if (error.f === 'email') {
-            return (
-              <p key='email-error' className='text-sm text-red-500'>
-                Please enter a valid email address.
-              </p>
-            );
-          }
-          if (error.field === 'message') {
-            return (
-              <p key='message-error' className='text-sm text-red-500'>
-                Don't forget to write a message!
-              </p>
-            );
-          }
-          return null;
-        })} */}
 
         <button
           className='bg-mutedCoral mt-3 mr-1 ml-auto h-fit w-fit rounded-md p-3 disabled:bg-amber-50'
