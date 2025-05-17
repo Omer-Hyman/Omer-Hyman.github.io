@@ -10,12 +10,10 @@ export default function AboutMe({
       <h3>About Me</h3>
       <p>
         I am a software engineer with 1.5 years of industry experience, a degree
-        in Computer Science and nearly 10 years of development experience.
-      </p>
-      <p>
-        Although not officially working as a software engineer since 2024, I
-        have always been working on personal projects in my spare time. I love
-        creating new products that I wish existed for my own personal use.
+        in Computer Science and nearly 10 years of development experience. I am
+        always working on prohjects in my spare time. I love creating new
+        products that I wish existed for my own personal use, and I find I have
+        learnt a lot whilst developing these projects.
       </p>
       <p>
         While I have used a wide variety of different technologies, I always
