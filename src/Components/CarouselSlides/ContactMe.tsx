@@ -1,4 +1,4 @@
-import { useEffect, type JSX } from 'react';
+import { type JSX } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
 export default function AboutMe(): JSX.Element {

@@ -5,7 +5,7 @@ export default function Projects(): JSX.Element {
     <div>
       {/* TODO: Turn projects into expandable cards? */}
       <h3>Spotify Playlist Generator</h3>
-      <p className='text-goldenYellow mt-3 mb-1 text-center font-semibold'>
+      <p className='mt-3 mb-2 text-center font-semibold'>
         React, Typescript, Node.JS, Express.JS, Supabase, Capacitor, Render
       </p>
       <div id='SpotifyEventPlaylistGenerator'>
@@ -47,12 +47,13 @@ export default function Projects(): JSX.Element {
       <iframe
         className='m-auto'
         src='https://www.youtube.com/embed/reI4LgNIHRM'
+        width={'100%'}
         title='Spotify Playlist Generator demo'
         allowFullScreen
       ></iframe>
 
       <h3 className='mt-4'>xSocial</h3>
-      <p className='text-goldenYellow mt-3 mb-1 text-center font-semibold'>
+      <p className='mt-3 mb-2 text-center font-semibold'>
         Angular, Typescript, Python, Django, Django REST framework, Capacitor
       </p>
       <div className='mb-3'>
@@ -71,11 +72,10 @@ export default function Projects(): JSX.Element {
       <iframe
         className='mx-auto'
         src='https://www.youtube.com/embed/gWqqvSPyAyM?color=white'
+        width={'95%'}
         title='xSocial demo'
         allowFullScreen
       ></iframe>
-
-      {/* <div className='pt-1'></div> */}
     </div>
   );
 }

@@ -50,6 +50,7 @@ export default function EmblaCarousel({
           </div>
         </div>
       </div>
+      <div className='pt-4'></div>
     </div>
   );
 }
