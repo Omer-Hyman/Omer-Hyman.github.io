@@ -35,7 +35,7 @@ export default function EmblaCarousel({
   return (
     <div className=''>
       <div
-        className='embla m-auto max-w-[95%] overflow-hidden sm:max-w-[80%]'
+        className='embla m-auto max-w-[95%] overflow-hidden sm:max-w-[90%] md:max-w-[85%]'
         ref={emblaRef}
       >
         <div className='embla__container flex items-start'>
