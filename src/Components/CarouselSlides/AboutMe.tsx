@@ -11,7 +11,7 @@ export default function AboutMe({
       <p>
         I am a software engineer with 1.5 years of industry experience, a degree
         in Computer Science and nearly 10 years of development experience. I am
-        always working on prohjects in my spare time. I love creating new
+        always working on projects in my spare time. I love creating new
         products that I wish existed for my own personal use, and I find I have
         learnt a lot whilst developing these projects.
       </p>
@@ -27,7 +27,7 @@ export default function AboutMe({
       <p>
         Whether you need help with bug fixes, development of standalone features
         to integrate into your codebase, or whole applications developed and
-        delivered I can help. Don't hesitate to{' '}
+        delivered, I can help. Don't hesitate to{' '}
         <button
           onClick={contactMeClicked}
           className='text-goldenYellow hover:text-burntOrange px-1 underline underline-offset-4'
