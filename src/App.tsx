@@ -8,6 +8,8 @@ import EmblaCarousel from './Components/EmblaCarousel';
 import { getIndexFromUrlFragment, setUrlFragment } from './Utilities';
 import { useLocation } from 'react-router-dom';
 
+// TODO: Change all the prop drilling to a usecontext?
+
 function App(): JSX.Element {
   const location = useLocation();
   const [startOn] = useState(() => {

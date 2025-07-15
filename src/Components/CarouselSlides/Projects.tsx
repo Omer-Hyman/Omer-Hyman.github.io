@@ -5,7 +5,14 @@ export default function Projects(): JSX.Element {
     <div>
       {/* TODO: Turn projects into expandable cards? */}
       <div className=''>
-        <h3>Spotify Playlist Generator</h3>
+        <a
+          href='https://eventplaylistgenerator-frontend.onrender.com/'
+          target='_blank'
+          className='text-mutedCoral hover:text-goldenYellow mb-2 font-[Montserrat_Variable] text-2xl font-semibold'
+          rel='noreferrer'
+        >
+          Spotify Playlist Generator
+        </a>
         <p className='mt-3 mb-2 text-center font-semibold'>
           React, Typescript, Node.JS, Express.JS, Supabase, Capacitor, Render
         </p>
@@ -40,12 +47,18 @@ export default function Projects(): JSX.Element {
           </p>
           <p>
             This application, like many of my others is responsive and runs on
-            Android, iOS and the Web! It will soon be hosted online, but for
-            now, please watch my screen cast demonstrating it in action.
-            {/* TODO */}
+            Android, iOS and the Web! Check it out{''}
+            <a
+              href='https://eventplaylistgenerator-frontend.onrender.com/'
+              target='_blank'
+              className='text-goldenYellow hover:text-burntOrange px-1 underline underline-offset-4'
+              rel='noreferrer'
+            >
+              here.
+            </a>
           </p>
         </div>
-        <div className='flex aspect-video max-h-[703px] max-w-[937px] content-center lg:m-auto'>
+        {/* <div className='flex aspect-video max-h-[703px] max-w-[937px] content-center lg:m-auto'>
           <iframe
             className='h-full w-full rounded'
             src='https://www.youtube.com/embed/reI4LgNIHRM'
@@ -53,7 +66,7 @@ export default function Projects(): JSX.Element {
             allowFullScreen
             referrerPolicy='strict-origin-when-cross-origin'
           ></iframe>
-        </div>
+        </div> */}
       </div>
       <div className='mt-8'>
         <h3 className='mt-4'>xSocial</h3>
